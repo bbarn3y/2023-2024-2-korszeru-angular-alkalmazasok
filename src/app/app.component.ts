@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = '2023-24-2-angular';
+  title = 'Hello Angular!';
 }
