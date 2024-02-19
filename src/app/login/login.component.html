@@ -1,5 +1,25 @@
 <nz-card style="width:300px;" nzTitle="Card title">
-  <p>Card content</p>
-  <p>Card content</p>
-  <p>Card content</p>
+  <form nz-form>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8" nzFor="email">E-mail</nz-form-label>
+      <nz-form-control [nzSpan]="14"
+                       nzErrorTip="Please input your e-mail address!">
+        <input nz-input name="email" type="email" id="email"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8" nzFor="password">Password</nz-form-label>
+      <nz-form-control [nzSpan]="14"
+                       nzErrorTip="Please input your password!">
+        <input nz-input name="password" type="password" id="password"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <div class="text-center">
+      <button nz-button type="submit">
+        Log in
+      </button>
+    </div>
+  </form>
 </nz-card>
