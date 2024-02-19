@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const zorroModules = [
   NzCardModule
@@ -13,7 +14,8 @@ const zorroModules = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     ...zorroModules,
