@@ -1,10 +1,10 @@
 <nz-card style="width:300px;" nzTitle="Card title">
-  <form nz-form>
+  <form nz-form [formGroup]="loginForm">
     <nz-form-item>
       <nz-form-label [nzSpan]="8" nzFor="email">E-mail</nz-form-label>
       <nz-form-control [nzSpan]="14"
                        nzErrorTip="Please input your e-mail address!">
-        <input nz-input name="email" type="email" id="email"/>
+        <input formControlName="mail" nz-input name="email" type="email" id="email"/>
       </nz-form-control>
     </nz-form-item>
 
@@ -12,7 +12,7 @@
       <nz-form-label [nzSpan]="8" nzFor="password">Password</nz-form-label>
       <nz-form-control [nzSpan]="14"
                        nzErrorTip="Please input your password!">
-        <input nz-input name="password" type="password" id="password"/>
+        <input formControlName="password"  nz-input name="password" type="password" id="password"/>
       </nz-form-control>
     </nz-form-item>
 

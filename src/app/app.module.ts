@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import {NzFormModule} from "ng-zorro-antd/form";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzInputModule} from "ng-zorro-antd/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 const zorroModules = [
   NzButtonModule,
@@ -27,7 +28,8 @@ const zorroModules = [
   imports: [
     ...zorroModules,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
