@@ -11,6 +11,7 @@ import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpClientModule} from "@angular/common/http";
 
 const zorroModules = [
   NzButtonModule,
@@ -28,9 +29,10 @@ const zorroModules = [
   ],
   imports: [
     ...zorroModules,
-    BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [],
