@@ -12,6 +12,7 @@ import {NzInputModule} from "ng-zorro-antd/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
+import {CookieService} from "ngx-cookie-service";
 
 const zorroModules = [
   NzButtonModule,
@@ -35,7 +36,9 @@ const zorroModules = [
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
