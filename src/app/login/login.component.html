@@ -1,5 +1,5 @@
 <nz-card style="width:300px;" nzTitle="Card title">
-  <form nz-form [formGroup]="loginForm">
+  <form nz-form [formGroup]="loginForm" (ngSubmit)="login()">
     <nz-form-item>
       <nz-form-label [nzSpan]="8" nzFor="email">E-mail</nz-form-label>
       <nz-form-control [nzSpan]="14"

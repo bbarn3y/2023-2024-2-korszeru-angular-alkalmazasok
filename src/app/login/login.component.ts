@@ -16,4 +16,17 @@ export class LoginComponent {
     });
   }
 
+  login() {
+    if (this.loginForm.valid) {
+
+    } else {
+      this.loginForm.markAsDirty();
+      this.loginForm.updateValueAndValidity();
+      Object.values(this.loginForm.controls).forEach((control) => {
+        control.markAsDirty();
+        control.updateValueAndValidity();
+      })
+    }
+  }
+
 }
