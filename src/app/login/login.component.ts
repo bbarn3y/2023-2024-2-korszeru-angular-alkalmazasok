@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {ClientService} from "../_services/client.service";
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import {HttpClient} from "@angular/common/http";
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder,
+  constructor(private clientService: ClientService,
+              private fb: FormBuilder,
               private http: HttpClient) {
     this.loginForm = this.fb.group({
       mail: ['', [Validators.required, Validators.email]],
@@ -20,7 +22,7 @@ export class LoginComponent {
 
   login() {
     if (this.loginForm.valid) {
-      this.http.get('https://mocki.io/v1/4b986d28-e3c8-4b39-90ca-80cec8d7d01d')
+      this.clientService.login()
         .subscribe((response) => {
           console.log('login response', response);
         });
