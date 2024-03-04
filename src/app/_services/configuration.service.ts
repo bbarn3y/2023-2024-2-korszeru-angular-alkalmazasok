@@ -10,10 +10,19 @@ export class ConfigurationService {
   constructor() { }
 
   static fetchConfiguration(): Promise<Configuration> {
-
+    return fetch('/assets/configuration.json').then((response) => response.json());
   }
 
   static loadConfiguration() {
-
+    if (ConfigurationService.config) {
+      return new Promise<Configuration>((resolve, reject) => {
+        resolve(ConfigurationService.config);
+      })
+    } else {
+      return ConfigurationService.fetchConfiguration().then((configuration) => {
+        ConfigurationService.config = configuration;
+        return ConfigurationService.config;
+      })
+    }
   }
 }
