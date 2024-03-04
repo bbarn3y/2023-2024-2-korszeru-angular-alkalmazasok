@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {map, Observable} from "rxjs";
+import {delay, map, Observable, of} from "rxjs";
 import {UserService} from "./user.service";
 
 @Injectable({
@@ -16,6 +16,11 @@ export class ClientService {
       .pipe(map((response) => {
         this.userService.saveSession(response.token);
         return response;
-      }))
+      }));
+
+    return of({
+      token: 'dsfdfg3dsa'
+    }).pipe(delay(5000));
+
   }
 }
