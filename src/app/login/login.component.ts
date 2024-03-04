@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {ClientService} from "../_services/client.service";
+import {RoutingService} from "../_services/routing.service";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent {
 
   constructor(private clientService: ClientService,
               private fb: FormBuilder,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private routingService: RoutingService) {
     this.loginForm = this.fb.group({
       mail: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
@@ -25,6 +27,7 @@ export class LoginComponent {
       this.clientService.login()
         .subscribe((response) => {
           console.log('login response', response);
+          this.routingService.routeToLobby();
         });
     } else {
       this.loginForm.markAsDirty();
