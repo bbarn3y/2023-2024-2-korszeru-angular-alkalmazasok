@@ -13,6 +13,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import {CookieService} from "ngx-cookie-service";
+import { LobbyComponent } from './lobby/lobby.component';
 
 const zorroModules = [
   NzButtonModule,
@@ -26,7 +27,8 @@ const zorroModules = [
   declarations: [
     AppComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LobbyComponent
   ],
   imports: [
     ...zorroModules,
