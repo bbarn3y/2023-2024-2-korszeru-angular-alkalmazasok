@@ -7,6 +7,8 @@ import {NzInputModule} from "ng-zorro-antd/input";
 import {LobbyComponent} from "../lobby/lobby.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
+import {NzModalModule} from "ng-zorro-antd/modal";
+import {CharacterCreatorComponent} from "../character-creator/character-creator.component";
 
 const routes: Routes = [
   {
@@ -23,11 +25,13 @@ const zorroModules = [
   NzButtonModule,
   NzCardModule,
   NzFormModule,
-  NzInputModule
+  NzInputModule,
+  NzModalModule
 ];
 
 @NgModule({
   declarations: [
+    CharacterCreatorComponent,
     LobbyComponent
   ],
   imports: [

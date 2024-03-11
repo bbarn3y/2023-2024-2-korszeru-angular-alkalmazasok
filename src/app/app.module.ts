@@ -9,7 +9,6 @@ import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CookieService} from "ngx-cookie-service";
-import { LobbyComponent } from './lobby/lobby.component';
 
 const zorroModules = [
   NzButtonModule,
