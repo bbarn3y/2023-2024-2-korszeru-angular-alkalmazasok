@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ValidatorService} from "../_services/validator.service";
 
 @Component({
   selector: 'app-character-creator',
@@ -6,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./character-creator.component.less']
 })
 export class CharacterCreatorComponent {
+  characterFrom: FormGroup;
+
+  constructor(private fb: FormBuilder,
+              private validatorService: ValidatorService) {
+    this.characterFrom = fb.group({
+      name: ['', [Validators.required, this.validatorService.fullNameValidator]],
+      image: ['', [Validators.required]],
+      characterClass: ['', [Validators.required]],
+      maxHp: [1, [Validators.required, Validators.min(1), Validators.max(12)]]
+    }, {
+      validators: []
+    });
+  }
+
 
 }
