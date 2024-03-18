@@ -4,9 +4,18 @@
   <nz-form-item>
     <nz-form-label [nzSpan]="8">Name</nz-form-label>
     <nz-form-control [nzSpan]="14"
-                     nzErrorTip="Please input your e-mail address!">
+                     [nzErrorTip]="nameErrorTemplate">
       <input formControlName="name" nz-input/>
     </nz-form-control>
+
+    <ng-template #nameErrorTemplate>
+      <ng-container *ngIf="characterForm.get('name')?.errors?.['required']">
+        Please provide a name!
+      </ng-container>
+      <ng-container *ngIf="characterForm.get('name')?.errors?.['invalidFullName']">
+        The name must consist of exactly two words!
+      </ng-container>
+    </ng-template>
   </nz-form-item>
 
   <nz-form-item>
@@ -30,9 +39,23 @@
 
   <nz-form-item>
     <nz-form-label [nzSpan]="8" nzRequired>Max HP</nz-form-label>
-    <nz-form-control [nzSpan]="14" nzHasFeedback>
+    <nz-form-control [nzSpan]="14"
+                     [nzErrorTip]="maxHPErrorTemplate"
+                     nzHasFeedback>
       <nz-input-number formControlName="maxHp"></nz-input-number>
     </nz-form-control>
+
+    <ng-template #maxHPErrorTemplate>
+      <ng-container *ngIf="characterForm.get('maxHp')?.errors?.['required']">
+        Please provide the maximum HP!
+      </ng-container>
+      <ng-container *ngIf="characterForm.get('maxHp')?.errors?.['min']">
+        The max HP must be at least 1!
+      </ng-container>
+      <ng-container *ngIf="characterForm.get('maxHp')?.errors?.['max']">
+        The max HP must be less than 13!
+      </ng-container>
+    </ng-template>
   </nz-form-item>
 
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Form, FormControl} from "@angular/forms";
+import {Form, FormControl, FormGroup} from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,14 @@ export class ValidatorService {
     }
   }
 
-  // @todo Group validator
+  maxHpByClassValidator = (group: FormGroup): { [k: string]: boolean } | null => {
+    const characterClass = group.get('characterClass')?.value;
+    const maxHp = group.get('maxHp')?.value;
+    if (characterClass && maxHp) {
+      // @todo
+    } else {
+      return null;
+    }
+  }
 
 }
