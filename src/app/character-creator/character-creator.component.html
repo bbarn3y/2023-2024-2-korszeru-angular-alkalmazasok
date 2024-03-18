@@ -1,1 +1,21 @@
-<p>character-creator works!</p>
+<form nz-form
+      [formGroup]="characterForm"
+      (ngSubmit)="createCharacter()">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="8">Name</nz-form-label>
+    <nz-form-control [nzSpan]="14"
+                     nzErrorTip="Please input your e-mail address!">
+      <input formControlName="name" nz-input/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="8">Image</nz-form-label>
+    <nz-form-control [nzSpan]="14"
+                     nzErrorTip="Please input an image path!">
+      <input formControlName="image" nz-input placeholder="/assets/characters/mage.webp"/>
+    </nz-form-control>
+  </nz-form-item>
+
+
+</form>

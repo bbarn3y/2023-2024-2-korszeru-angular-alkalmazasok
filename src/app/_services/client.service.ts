@@ -22,8 +22,13 @@ export class ClientService {
     } else {
       return of({
         token: 'dsfdfg3dsa'
-      }).pipe(delay(5000));
-
+      }).pipe(
+        delay(1000),
+        map((response) => {
+          this.userService.saveSession(response.token);
+          return response;
+        })
+      );
     }
   }
 }

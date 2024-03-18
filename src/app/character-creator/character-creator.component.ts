@@ -8,11 +8,11 @@ import {ValidatorService} from "../_services/validator.service";
   styleUrls: ['./character-creator.component.less']
 })
 export class CharacterCreatorComponent {
-  characterFrom: FormGroup;
+  characterForm: FormGroup;
 
   constructor(private fb: FormBuilder,
               private validatorService: ValidatorService) {
-    this.characterFrom = fb.group({
+    this.characterForm = fb.group({
       name: ['', [Validators.required, this.validatorService.fullNameValidator]],
       image: ['', [Validators.required]],
       characterClass: ['', [Validators.required]],
@@ -20,6 +20,10 @@ export class CharacterCreatorComponent {
     }, {
       validators: []
     });
+  }
+
+  createCharacter() {
+
   }
 
 
