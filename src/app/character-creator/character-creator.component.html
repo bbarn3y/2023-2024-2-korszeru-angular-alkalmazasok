@@ -41,6 +41,10 @@
     <nz-form-label [nzSpan]="8" nzRequired>Max HP</nz-form-label>
     <nz-form-control [nzSpan]="14"
                      [nzErrorTip]="maxHPErrorTemplate"
+                     [nzValidateStatus]="
+                      (characterForm.hasError('invalidMaxHpForClass') || !characterForm.get('maxHp')?.valid)
+                        ? 'error'
+                        : 'success'"
                      nzHasFeedback>
       <nz-input-number formControlName="maxHp"></nz-input-number>
     </nz-form-control>
@@ -54,6 +58,9 @@
       </ng-container>
       <ng-container *ngIf="characterForm.get('maxHp')?.errors?.['max']">
         The max HP must be less than 13!
+      </ng-container>
+      <ng-container *ngIf="characterForm.errors?.['invalidMaxHpForClass']">
+        The max HP is incorrect for the selected class!
       </ng-container>
     </ng-template>
   </nz-form-item>

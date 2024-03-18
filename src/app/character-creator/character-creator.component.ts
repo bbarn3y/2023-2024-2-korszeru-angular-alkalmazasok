@@ -22,7 +22,9 @@ export class CharacterCreatorComponent {
       characterClass: [CharacterClass.MAGE, [Validators.required]],
       maxHp: [1, [Validators.required, Validators.min(1), Validators.max(12)]]
     }, {
-      validators: []
+      validators: [
+        this.validatorService.maxHpByClassValidator
+      ]
     });
   }
 
