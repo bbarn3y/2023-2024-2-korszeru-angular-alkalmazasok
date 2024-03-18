@@ -17,5 +17,23 @@
     </nz-form-control>
   </nz-form-item>
 
+  <nz-form-item>
+    <nz-form-label [nzSpan]="8" nzRequired>Class</nz-form-label>
+    <nz-form-control [nzSpan]="14" nzHasFeedback>
+      <nz-select formControlName="characterClass">
+        <nz-option [nzValue]="CharacterClass.WARRIOR" nzLabel="Warrior"></nz-option>
+        <nz-option [nzValue]="CharacterClass.ROGUE" nzLabel="Rogue"></nz-option>
+        <nz-option [nzValue]="CharacterClass.MAGE" nzLabel="Mage"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="8" nzRequired>Max HP</nz-form-label>
+    <nz-form-control [nzSpan]="14" nzHasFeedback>
+      <nz-input-number formControlName="maxHp"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+
 
 </form>

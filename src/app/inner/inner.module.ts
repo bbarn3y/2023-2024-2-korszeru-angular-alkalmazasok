@@ -9,6 +9,18 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
 import {NzModalModule} from "ng-zorro-antd/modal";
 import {CharacterCreatorComponent} from "../character-creator/character-creator.component";
+import {NzSelectModule} from "ng-zorro-antd/select";
+import {NzInputNumberModule} from "ng-zorro-antd/input-number";
+
+const zorroModules = [
+  NzButtonModule,
+  NzCardModule,
+  NzFormModule,
+  NzInputModule,
+  NzInputNumberModule,
+  NzModalModule,
+  NzSelectModule
+];
 
 const routes: Routes = [
   {
@@ -19,14 +31,6 @@ const routes: Routes = [
     path: '**',
     redirectTo: '/lobby'
   }
-];
-
-const zorroModules = [
-  NzButtonModule,
-  NzCardModule,
-  NzFormModule,
-  NzInputModule,
-  NzModalModule
 ];
 
 @NgModule({
