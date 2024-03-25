@@ -22,17 +22,21 @@ export enum CharacterClass {
 
 export interface CharacterDetail {
   maxHp: number;
+  color: 'green' | 'red' | 'blue'
 }
 
 export const CharacterDetails: { [k in CharacterClass]: CharacterDetail } = {
   [CharacterClass.MAGE]: {
-    maxHp: 6
+    maxHp: 6,
+    color: 'green'
   },
   [CharacterClass.ROGUE]: {
-    maxHp: 8
+    maxHp: 8,
+    color: 'blue'
   },
   [CharacterClass.WARRIOR]: {
-    maxHp: 12
+    maxHp: 12,
+    color: 'red'
   },
 }
 

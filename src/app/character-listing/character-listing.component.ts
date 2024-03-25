@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Character} from "@models/character";
+import {Character, CharacterDetails} from "@models/character";
 import {CharacterService} from "../_services/character.service";
 
 @Component({
@@ -17,4 +17,5 @@ export class CharacterListingComponent implements OnInit {
     this.characters = this.characterService.getCharacters();
   }
 
+  protected readonly CharacterDetails = CharacterDetails;
 }
