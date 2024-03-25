@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidatorService} from "../_services/validator.service";
 import {Character, CharacterClass} from "@models/character";
+import {CharacterService} from "../_services/character.service";
 
 @Component({
   selector: 'app-character-creator',
@@ -13,7 +14,8 @@ export class CharacterCreatorComponent {
 
   CharacterClass = CharacterClass;
 
-  constructor(private fb: FormBuilder,
+  constructor(private characterService: CharacterService,
+              private fb: FormBuilder,
               private validatorService: ValidatorService) {
 
     this.characterForm = fb.group({
@@ -29,7 +31,13 @@ export class CharacterCreatorComponent {
   }
 
   createCharacter() {
-
+    const character = new Character(
+      this.characterForm.get('name')?.value,
+      this.characterForm.get('image')?.value,
+      this.characterForm.get('characterClass')?.value,
+      this.characterForm.get('maxHp')?.value,
+    );
+    this.characterService.addCharacter(character);
   }
 
 
