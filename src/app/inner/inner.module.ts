@@ -11,6 +11,8 @@ import {NzModalModule} from "ng-zorro-antd/modal";
 import {CharacterCreatorComponent} from "../character-creator/character-creator.component";
 import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
+import {CharacterListingComponent} from "../character-listing/character-listing.component";
+import {CharacterCardComponent} from "../character-card/character-card.component";
 
 const zorroModules = [
   NzButtonModule,
@@ -36,6 +38,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     CharacterCreatorComponent,
+    CharacterListingComponent,
+    CharacterCardComponent,
     LobbyComponent
   ],
   imports: [

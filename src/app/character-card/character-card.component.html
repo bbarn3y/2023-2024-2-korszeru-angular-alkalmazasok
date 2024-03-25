@@ -1,0 +1,15 @@
+<nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
+  <nz-card-meta [nzTitle]="character.name"
+                [nzDescription]="descriptionTemplate"></nz-card-meta>
+</nz-card>
+<ng-template #descriptionTemplate>
+  <div>
+    {{ character.characterClass }}
+  </div>
+  <div>
+    {{ character.maxHp }}
+  </div>
+</ng-template>
+<ng-template #coverTemplate>
+  <img alt="example" [src]="character.image" />
+</ng-template>

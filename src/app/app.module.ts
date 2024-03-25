@@ -19,7 +19,7 @@ const zorroModules = [
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     ...zorroModules,
