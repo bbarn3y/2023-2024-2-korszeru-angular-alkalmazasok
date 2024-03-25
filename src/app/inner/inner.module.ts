@@ -17,6 +17,7 @@ import {NzIconModule} from "ng-zorro-antd/icon";
 import { IconDefinition } from '@ant-design/icons-angular';
 import { SelectOutline } from '@ant-design/icons-angular/icons';
 import {CharacterNamePipe} from "../_pipes/character-name.pipe";
+import {SelectedCharacterDirective} from "../_directives/selected-character.directive";
 
 const icons: IconDefinition[] = [ SelectOutline ];
 
@@ -48,6 +49,7 @@ const routes: Routes = [
     CharacterListingComponent,
     CharacterCardComponent,
     CharacterNamePipe,
+    SelectedCharacterDirective,
     LobbyComponent
   ],
   imports: [

@@ -10,6 +10,7 @@ import {NzInputModule} from "ng-zorro-antd/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CookieService} from "ngx-cookie-service";
 import { CharacterNamePipe } from './_pipes/character-name.pipe';
+import { SelectedCharacterDirective } from './_directives/selected-character.directive';
 
 const zorroModules = [
   NzButtonModule,
