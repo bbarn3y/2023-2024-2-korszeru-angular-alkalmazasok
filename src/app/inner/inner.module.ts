@@ -13,11 +13,17 @@ import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {CharacterListingComponent} from "../character-listing/character-listing.component";
 import {CharacterCardComponent} from "../character-card/character-card.component";
+import {NzIconModule} from "ng-zorro-antd/icon";
+import { IconDefinition } from '@ant-design/icons-angular';
+import { SelectOutline } from '@ant-design/icons-angular/icons';
+
+const icons: IconDefinition[] = [ SelectOutline ];
 
 const zorroModules = [
   NzButtonModule,
   NzCardModule,
   NzFormModule,
+  NzIconModule.forChild(icons),
   NzInputModule,
   NzInputNumberModule,
   NzModalModule,

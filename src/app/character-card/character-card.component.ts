@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Character} from "@models/character";
 
 @Component({
@@ -8,5 +8,7 @@ import {Character} from "@models/character";
 })
 export class CharacterCardComponent {
   @Input() character!: Character;
+
+  @Output() characterSelected: EventEmitter<Character> = new EventEmitter<Character>();
 
 }

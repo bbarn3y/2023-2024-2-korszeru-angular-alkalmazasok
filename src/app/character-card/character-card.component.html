@@ -1,7 +1,15 @@
-<nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
+<nz-card nzHoverable style="width:240px"
+         [nzActions]="[selectActionTemplate]"
+         [nzCover]="coverTemplate">
   <nz-card-meta [nzTitle]="character.name"
                 [nzDescription]="descriptionTemplate"></nz-card-meta>
 </nz-card>
+
+<ng-template #selectActionTemplate>
+  <span nz-icon nzType="select"
+        (click)="characterSelected.emit(character)"></span>
+</ng-template>
+
 <ng-template #descriptionTemplate>
   <div>
     {{ character.characterClass }}
@@ -10,6 +18,7 @@
     {{ character.maxHp }}
   </div>
 </ng-template>
+
 <ng-template #coverTemplate>
   <img alt="example" [src]="character.image" />
 </ng-template>

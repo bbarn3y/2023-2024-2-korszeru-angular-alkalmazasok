@@ -9,6 +9,7 @@ import {CharacterService} from "../_services/character.service";
 })
 export class CharacterListingComponent implements OnInit {
   characters: Character[] = [];
+  selectedCharacter?: Character;
 
   constructor(private characterService: CharacterService) {}
 
