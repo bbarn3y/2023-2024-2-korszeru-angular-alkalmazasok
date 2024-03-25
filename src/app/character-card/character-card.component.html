@@ -1,7 +1,7 @@
 <nz-card nzHoverable style="width:240px"
          [nzActions]="[selectActionTemplate]"
          [nzCover]="coverTemplate">
-  <nz-card-meta [nzTitle]="character.name"
+  <nz-card-meta [nzTitle]="character.name | characterName"
                 [nzDescription]="descriptionTemplate"></nz-card-meta>
 </nz-card>
 

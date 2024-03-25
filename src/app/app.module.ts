@@ -9,6 +9,7 @@ import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CookieService} from "ngx-cookie-service";
+import { CharacterNamePipe } from './_pipes/character-name.pipe';
 
 const zorroModules = [
   NzButtonModule,
@@ -30,6 +31,7 @@ const zorroModules = [
   providers: [
     CookieService
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
