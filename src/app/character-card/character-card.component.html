@@ -1,5 +1,5 @@
 <nz-card nzHoverable style="width:240px"
-         [nzActions]="[selectActionTemplate]"
+         [nzActions]="[selectActionTemplate, removeActionTemplate]"
          [nzCover]="coverTemplate">
   <nz-card-meta [nzTitle]="character.name | characterName"
                 [nzDescription]="descriptionTemplate"></nz-card-meta>
@@ -8,6 +8,11 @@
 <ng-template #selectActionTemplate>
   <span nz-icon nzType="select"
         (click)="characterSelected.emit(character)"></span>
+</ng-template>
+
+<ng-template #removeActionTemplate>
+  <span nz-icon nzType="delete"
+        (click)="characterService.removeCharacter(character.id)"></span>
 </ng-template>
 
 <ng-template #descriptionTemplate>
