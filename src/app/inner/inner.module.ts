@@ -18,6 +18,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import { DeleteOutline, SelectOutline } from '@ant-design/icons-angular/icons';
 import {CharacterNamePipe} from "../_pipes/character-name.pipe";
 import {SelectedCharacterDirective} from "../_directives/selected-character.directive";
+import {NzPopconfirmModule} from "ng-zorro-antd/popconfirm";
 
 const icons: IconDefinition[] = [ DeleteOutline, SelectOutline ];
 
@@ -29,6 +30,7 @@ const zorroModules = [
   NzInputModule,
   NzInputNumberModule,
   NzModalModule,
+  NzPopconfirmModule,
   NzSelectModule
 ];
 

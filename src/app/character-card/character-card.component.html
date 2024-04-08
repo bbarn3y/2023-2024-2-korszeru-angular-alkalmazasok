@@ -12,7 +12,12 @@
 
 <ng-template #removeActionTemplate>
   <span nz-icon nzType="delete"
-        (click)="characterService.removeCharacter(character.id)"></span>
+        nz-popconfirm
+        nzPopconfirmTitle="Are you sure delete this character?"
+        nzPopconfirmPlacement="bottom"
+        nzOkText="Yes"
+        nzCancelText="No"
+        (nzOnConfirm)="characterService.removeCharacter(character.id)"></span>
 </ng-template>
 
 <ng-template #descriptionTemplate>
