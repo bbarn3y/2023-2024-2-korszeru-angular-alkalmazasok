@@ -11,7 +11,11 @@ export class CharacterListingComponent implements OnInit {
   characters: Character[] = [];
   selectedCharacter?: Character;
 
-  constructor(private characterService: CharacterService) {}
+  constructor(private characterService: CharacterService) {
+    this.characterService.characterListChanged.subscribe((characters) => {
+      this.characters = characters;
+    })
+  }
 
   ngOnInit() {
     this.characters = this.characterService.getCharacters();

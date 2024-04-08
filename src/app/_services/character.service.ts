@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Character} from "@models/character";
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
   characterStorageKey = 'characters';
+  characterListChanged: Subject<Character[]> = new Subject<Character[]>();
 
   constructor() {}
 
@@ -37,6 +39,7 @@ export class CharacterService {
 
   private saveCharacters(characters: Character[]): void {
     localStorage.setItem(this.characterStorageKey, JSON.stringify(characters));
+    this.characterListChanged.next(characters);
   }
 
 }

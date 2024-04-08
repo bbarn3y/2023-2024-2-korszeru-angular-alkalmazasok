@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidatorService} from "../_services/validator.service";
 import {Character, CharacterClass} from "@models/character";
 import {CharacterService} from "../_services/character.service";
+import {NzModalRef} from "ng-zorro-antd/modal";
 
 @Component({
   selector: 'app-character-creator',
@@ -16,6 +17,7 @@ export class CharacterCreatorComponent {
 
   constructor(private characterService: CharacterService,
               private fb: FormBuilder,
+              private nzModalRef: NzModalRef,
               private validatorService: ValidatorService) {
 
     this.characterForm = fb.group({
@@ -38,6 +40,7 @@ export class CharacterCreatorComponent {
       this.characterForm.get('maxHp')?.value,
     );
     this.characterService.addCharacter(character);
+    this.nzModalRef.close();
   }
 
 
