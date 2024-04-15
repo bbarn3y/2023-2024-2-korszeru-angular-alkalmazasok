@@ -1,6 +1,7 @@
 import {AfterViewInit, Component} from '@angular/core';
 import Konva from "konva";
 import {Tree} from "../_shapes/tree";
+import {FemaleNPC} from "../_shapes/femaleNPC";
 
 @Component({
   selector: 'app-konva',
@@ -45,8 +46,16 @@ export class KonvaComponent implements AfterViewInit {
       true
     )
 
-    tree.draw(this.selectedLayer)
+    const femaleNPC = new FemaleNPC(
+      300,
+      400,
+      50,
+      50,
+      false
+    )
 
+    tree.draw(this.selectedLayer)
+    femaleNPC.draw(this.selectedLayer);
     layer.add(rect);
   }
 
