@@ -1,5 +1,6 @@
 import {AfterViewInit, Component} from '@angular/core';
 import Konva from "konva";
+import {Tree} from "../_shapes/tree";
 
 @Component({
   selector: 'app-konva',
@@ -35,6 +36,16 @@ export class KonvaComponent implements AfterViewInit {
       strokeWidth: 3,
       draggable: true,
     });
+
+    const tree = new Tree(
+      200,
+      300,
+      50,
+      75,
+      true
+    )
+
+    tree.draw(this.selectedLayer)
 
     layer.add(rect);
   }
