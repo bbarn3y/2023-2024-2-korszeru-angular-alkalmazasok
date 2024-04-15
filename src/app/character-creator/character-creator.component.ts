@@ -41,7 +41,11 @@ export class CharacterCreatorComponent {
       this.characterForm.get('characterClass')?.value,
       this.characterForm.get('maxHp')?.value,
     );
-    this.characterService.addCharacter(character);
+    if (this.nzModalData?.character) {
+      this.characterService.editCharacter(this.nzModalData.character.id, character);
+    } else {
+      this.characterService.addCharacter(character);
+    }
     this.nzModalRef.close();
   }
 
