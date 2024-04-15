@@ -1,0 +1,31 @@
+= Canvas library study
+
+|===
+|Feature|Konva|Fabric.js
+
+|Free draw|✓ Supported through custom shape functionality and free drawing tools.|✓ Supports free drawing with brush customization.
+|Animation|✓ High performance animations supported, including transitions and tweens.|✓ Supports animation of objects and their properties.
+|CRUD|✓ Manipulation of objects (create, read, update, delete) through interactive canvas functionality.|✓ Allows creating, reading, updating, and deleting canvas objects.
+|Import|✓ Capable of importing images and other canvas elements as objects.|✓ Supports importing SVG and raster images.
+|Exporting options|✓ High-quality exports into data URLs, image data, or image objects.|✓ Can export to formats like PNG, JPEG, SVG, and JSON.
+|AI|No specific AI features mentioned.|No specific AI features mentioned.
+|Layer|✓ Supports multiple layers; each layer can contain shapes or groups.|✓ Layer management allows for complex scene creation and manipulation.
+|Group|✓ Supports grouping of shapes or other groups.|✓ Supports grouping of objects for collective transformations.
+|Context menu|No specific context menu integration mentioned; custom implementations possible.|Not specifically mentioned, likely requires custom implementation.
+|Drag & drop|✓ Built-in drag and drop support for canvas objects.|✓ Native support for drag and drop functionalities.
+|Supported graphical object type|✓ Supports rectangles, circles, images, sprites, text, lines, polygons, paths, stars, etc.|✓ Offers a variety of shapes, including rectangles, circles, polygons, and more complex paths.
+|Undo-redo|No specific undo-redo feature mentioned; possible through custom implementation.|Supports undo and redo operations within the canvas.
+|Performance|✓ Designed for high performance, suitable for applications with thousands of shapes.|Optimized for high performance, especially in interactive applications.
+|Community support|✓ Active community on GitHub, StackOverflow, and a Discord chat for support.|Strong community presence with extensive support on GitHub and StackOverflow.
+|Documentation quality|✓ Extensive documentation available, including tutorials and API documentation.|Well-documented with tutorials, extensive API guides, and examples.
+|Demo|✓ Multiple demos available showcasing different features.|Various demos available illustrating the capabilities of Fabric.js.
+|Simplicity|✓ Straightforward API, though some complexity in advanced features.|User-friendly, with a modular architecture allowing for easier customization.
+|NPM weekly download|✓ 324,398 downloads, indicating strong usage and reliance in the community.|Significant usage with a wide adoption in various projects.
+|GitHub stars|Information not found in sources; general positive community feedback observed.|27,374 stars, reflecting a strong community endorsement.
+|GitHub commits|3,575 commits, showing active development and maintenance.|3,401 commits, demonstrating active development.
+|GitHub issues|Active issue tracking and resolution on GitHub.|337 current issues, indicating active community engagement and feedback.
+|Developer support|Developer support available through various channels including GitHub and Discord.|Support available through GitHub, StackOverflow, and other channels.
+|Compatibility|Works in all modern browsers; polyfills required for older browsers like IE11.|Supports modern browsers, with Node.js compatibility for server-side rendering.
+|LICENSE|MIT License, allowing free use, modification, and distribution.|MIT License, free for personal and commercial use.
+
+|===
