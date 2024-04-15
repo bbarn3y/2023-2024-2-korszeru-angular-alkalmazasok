@@ -1,3 +1,21 @@
 .text-center {
   text-align: center;
 }
+
+.generateMargin(@counter) when (@counter >= 0) {
+  .generateMargin(@counter - 5);
+
+  .m-t-@{counter} {
+    margin-top: @counter * 1px;
+  }
+  .m-r-@{counter} {
+    margin-right: @counter * 1px;
+  }
+  .m-b-@{counter} {
+    margin-bottom: @counter * 1px;
+  }
+  .m-l-@{counter} {
+    margin-left: @counter * 1px;
+  }
+}
+.generateMargin(200);
