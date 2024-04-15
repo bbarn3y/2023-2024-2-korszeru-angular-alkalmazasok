@@ -19,6 +19,7 @@ import { DeleteOutline, EditOutline, SelectOutline } from '@ant-design/icons-ang
 import {CharacterNamePipe} from "../_pipes/character-name.pipe";
 import {SelectedCharacterDirective} from "../_directives/selected-character.directive";
 import {NzPopconfirmModule} from "ng-zorro-antd/popconfirm";
+import {KonvaComponent} from "../konva/konva.component";
 
 const icons: IconDefinition[] = [ DeleteOutline, EditOutline, SelectOutline ];
 
@@ -51,6 +52,7 @@ const routes: Routes = [
     CharacterListingComponent,
     CharacterCardComponent,
     CharacterNamePipe,
+    KonvaComponent,
     SelectedCharacterDirective,
     LobbyComponent
   ],

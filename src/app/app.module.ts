@@ -11,6 +11,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CookieService} from "ngx-cookie-service";
 import { CharacterNamePipe } from './_pipes/character-name.pipe';
 import { SelectedCharacterDirective } from './_directives/selected-character.directive';
+import { KonvaComponent } from './konva/konva.component';
 
 const zorroModules = [
   NzButtonModule,
@@ -21,7 +22,7 @@ const zorroModules = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     ...zorroModules,
