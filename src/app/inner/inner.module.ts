@@ -15,13 +15,13 @@ import {CharacterListingComponent} from "../character-listing/character-listing.
 import {CharacterCardComponent} from "../character-card/character-card.component";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import { IconDefinition } from '@ant-design/icons-angular';
-import { DeleteOutline, EditOutline, SelectOutline } from '@ant-design/icons-angular/icons';
+import { AimOutline, DeleteOutline, EditOutline, ForkOutline, SelectOutline, WomanOutline } from '@ant-design/icons-angular/icons';
 import {CharacterNamePipe} from "../_pipes/character-name.pipe";
 import {SelectedCharacterDirective} from "../_directives/selected-character.directive";
 import {NzPopconfirmModule} from "ng-zorro-antd/popconfirm";
 import {KonvaComponent} from "../konva/konva.component";
 
-const icons: IconDefinition[] = [ DeleteOutline, EditOutline, SelectOutline ];
+const icons: IconDefinition[] = [ AimOutline, DeleteOutline, EditOutline, ForkOutline, SelectOutline, WomanOutline ];
 
 const zorroModules = [
   NzButtonModule,

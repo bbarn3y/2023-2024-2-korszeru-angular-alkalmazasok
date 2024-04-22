@@ -1,1 +1,37 @@
+<nz-card id="konva-toolbar">
+  <div class="toolbar-button-container">
+    <ng-template #toolbarButtonTemplate
+                 let-icon="buttonIcon"
+                 let-mode="mode"
+    >
+      <button nz-button
+              [nzType]="selectedMode === mode ? 'primary' : 'default'"
+              (click)="selectedMode = mode">
+        <span nz-icon [nzType]="icon"></span>
+      </button>
+    </ng-template>
+    <ng-container *ngTemplateOutlet="toolbarButtonTemplate; context: { buttonIcon: 'aim', mode: KonvaMode.SELECT }"></ng-container>
+    <ng-container *ngTemplateOutlet="toolbarButtonTemplate; context: { buttonIcon: 'fork', mode: KonvaMode.TREE }"></ng-container>
+    <ng-container *ngTemplateOutlet="toolbarButtonTemplate; context: { buttonIcon: 'woman', mode: KonvaMode.FEMALE_NPC }"></ng-container>
+
+    <!--
+    <button nz-button
+            [nzType]="selectedMode === KonvaMode.SELECT ? 'primary' : 'default'"
+            (click)="selectedMode = KonvaMode.SELECT">
+      <span nz-icon nzType="aim"></span>
+    </button>
+    <button nz-button
+            [nzType]="selectedMode === KonvaMode.TREE ? 'primary' : 'default'"
+            (click)="selectedMode = KonvaMode.TREE">
+      <span nz-icon nzType="fork"></span>
+    </button>
+    <button nz-button
+            [nzType]="selectedMode === KonvaMode.FEMALE_NPC ? 'primary' : 'default'"
+            (click)="selectedMode = KonvaMode.FEMALE_NPC">
+      <span nz-icon nzType="woman"></span>
+    </button>
+    -->
+  </div>
+</nz-card>
+
 <div id="konva-container"></div>
