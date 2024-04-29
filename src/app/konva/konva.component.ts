@@ -21,7 +21,20 @@ export class KonvaComponent implements AfterViewInit {
     this.loadState();
 
     document.addEventListener('keydown', (e) => {
-
+      switch (e.code) {
+        case 'ArrowUp':
+          this.leftClickedShape?.y(this.leftClickedShape.y() - 5);
+          break;
+        case 'ArrowDown':
+          this.leftClickedShape?.y(this.leftClickedShape.y() + 5);
+          break;
+        case 'ArrowLeft':
+          this.leftClickedShape?.x(this.leftClickedShape.x() - 5);
+          break;
+        case 'ArrowRight':
+          this.leftClickedShape?.x(this.leftClickedShape.x() + 5);
+          break;
+      }
     });
   }
 
