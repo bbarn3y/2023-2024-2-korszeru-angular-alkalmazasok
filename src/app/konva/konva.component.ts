@@ -10,6 +10,7 @@ import {KonvaMode} from "@models/konva";
   styleUrls: ['./konva.component.less']
 })
 export class KonvaComponent implements AfterViewInit {
+  konvaScale: number = 1;
   leftClickedShape?: Konva.Shape | Konva.Group;
   stage?: Konva.Stage;
   selectedLayer?: Konva.Layer;
@@ -24,6 +25,7 @@ export class KonvaComponent implements AfterViewInit {
     if (this.stage) {
       this.stage.on('click', (event) => {
         if (this.stage && this.selectedLayer) {
+          let pointer = this.stage.getPointerPosition();
           this.leftClickedShape = this.getClickTarget(event.target);
 
           if (this.leftClickedShape instanceof Konva.Shape || this.leftClickedShape instanceof  Konva.Group) {
@@ -33,32 +35,65 @@ export class KonvaComponent implements AfterViewInit {
           } else {
             switch (this.selectedMode) {
               case KonvaMode.FEMALE_NPC:
-                const femaleNPC = new FemaleNPC(
-                  event.evt.offsetX,
-                  event.evt.offsetY,
-                  50,
-                  50,
-                  false
-                )
-                femaleNPC.draw(this.selectedLayer);
+                if (pointer) {
+                  const femaleNPC = new FemaleNPC(
+                    (pointer.x - this.stage.x()) / this.konvaScale,
+                    (pointer.y - this.stage.y()) / this.konvaScale,
+                    50,
+                    50,
+                    false
+                  )
+                  femaleNPC.draw(this.selectedLayer);
+                }
                 break;
               case KonvaMode.SELECT:
                 this.transformer?.nodes([]);
                 break;
               case KonvaMode.TREE:
-                const tree = new Tree(
-                  event.evt.offsetX,
-                  event.evt.offsetY,
-                  50,
-                  75,
-                  true
-                )
-                tree.draw(this.selectedLayer);
+                if (pointer) {
+                  const tree = new Tree(
+                    (pointer.x - this.stage.x()) / this.konvaScale,
+                    (pointer.y - this.stage.y()) / this.konvaScale,
+                    50,
+                    75,
+                    true
+                  )
+                  tree.draw(this.selectedLayer);
+                }
                 break;
             }
           }
         }
       })
+
+      this.stage.on('wheel', (event) => {
+        event.evt.preventDefault();
+
+        if (this.stage) {
+          let pendingScaleBy = 1.03;
+          let oldScale = this.stage.scaleX();
+          let direction = event.evt.deltaY;
+          let pointer = this.stage.getPointerPosition();
+
+          if (pointer) {
+            let mousePointsTo = {
+              x: (pointer.x - this.stage.x()) / oldScale,
+              y: (pointer.y - this.stage.y()) / oldScale
+            }
+
+            this.konvaScale = direction < 0 ? oldScale * pendingScaleBy : oldScale / pendingScaleBy;
+
+            this.stage.position({
+              x: pointer.x - mousePointsTo.x * this.konvaScale,
+              y: pointer.y - mousePointsTo.y * this.konvaScale
+            });
+            this.stage.scale({
+              x: this.konvaScale,
+              y: this.konvaScale
+            });
+          }
+        }
+      });
     }
   }
 
