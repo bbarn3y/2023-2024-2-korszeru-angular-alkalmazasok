@@ -19,6 +19,10 @@ export class KonvaComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.loadState();
+
+    document.addEventListener('keydown', (e) => {
+
+    });
   }
 
   addStageEventListeners() {
