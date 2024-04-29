@@ -1,8 +1,9 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import Konva from "konva";
 import {Tree} from "../_shapes/tree";
 import {FemaleNPC} from "../_shapes/femaleNPC";
 import {KonvaMode} from "@models/konva";
+import {NzContextMenuService, NzDropdownMenuComponent} from "ng-zorro-antd/dropdown";
 
 @Component({
   selector: 'app-konva',
@@ -12,10 +13,16 @@ import {KonvaMode} from "@models/konva";
 export class KonvaComponent implements AfterViewInit {
   konvaScale: number = 1;
   leftClickedShape?: Konva.Shape | Konva.Group;
+  rightClickedShape?: Konva.Shape | Konva.Group;
   stage?: Konva.Stage;
   selectedLayer?: Konva.Layer;
   selectedMode: KonvaMode = KonvaMode.SELECT;
   transformer?: Konva.Transformer;
+
+  @ViewChild('menu') contextMenuEl!: NzDropdownMenuComponent;
+
+  constructor(private elRef: ElementRef,
+              private nzContextMenuService: NzContextMenuService) {}
 
   ngAfterViewInit() {
     this.loadState();
@@ -83,6 +90,18 @@ export class KonvaComponent implements AfterViewInit {
         }
       })
 
+      this.stage.on('contextmenu', (event) => {
+        event.evt.preventDefault();
+        this.rightClickedShape = this.getClickTarget(event.target);
+
+        if (this.rightClickedShape) {
+          this.nzContextMenuService.create({
+            x: event.target.getClientRect().x,
+            y: this.elRef.nativeElement.getBoundingClientRect().y + event.target.getClientRect().y
+          }, this.contextMenuEl)
+        }
+      });
+
       this.stage.on('wheel', (event) => {
         event.evt.preventDefault();
 
@@ -112,6 +131,10 @@ export class KonvaComponent implements AfterViewInit {
         }
       });
     }
+  }
+
+  deleteShape() {
+    this.rightClickedShape?.destroy();
   }
 
   getClickTarget(target: Konva.Shape | Konva.Stage): Konva.Shape | Konva.Group | undefined {

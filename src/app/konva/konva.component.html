@@ -34,4 +34,10 @@
   </div>
 </nz-card>
 
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item (click)="deleteShape()">Delete</li>
+  </ul>
+</nz-dropdown-menu>
+
 <div id="konva-container"></div>

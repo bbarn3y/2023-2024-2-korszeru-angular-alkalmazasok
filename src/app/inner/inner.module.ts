@@ -20,12 +20,14 @@ import {CharacterNamePipe} from "../_pipes/character-name.pipe";
 import {SelectedCharacterDirective} from "../_directives/selected-character.directive";
 import {NzPopconfirmModule} from "ng-zorro-antd/popconfirm";
 import {KonvaComponent} from "../konva/konva.component";
+import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 
 const icons: IconDefinition[] = [ AimOutline, DeleteOutline, EditOutline, ForkOutline, SelectOutline, WomanOutline ];
 
 const zorroModules = [
   NzButtonModule,
   NzCardModule,
+  NzDropDownModule,
   NzFormModule,
   NzIconModule.forChild(icons),
   NzInputModule,
