@@ -147,6 +147,14 @@ export class KonvaComponent implements AfterViewInit {
     }
   }
 
+  goHome() {
+    this.rightClickedShape?.to({
+      x: this.rightClickedShape?.getClientRect().x * -1,
+      y: this.rightClickedShape?.getClientRect().y * -1,
+      duration: 5
+    })
+  }
+
   loadState() {
     this.stage = new Konva.Stage({
       container: 'konva-container',   // id of container <div>
