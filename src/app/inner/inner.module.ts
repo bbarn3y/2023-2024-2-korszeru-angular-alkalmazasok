@@ -5,7 +5,7 @@ import {NzCardModule} from "ng-zorro-antd/card";
 import {NzFormModule} from "ng-zorro-antd/form";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {LobbyComponent} from "../lobby/lobby.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
 import {NzModalModule} from "ng-zorro-antd/modal";
 import {CharacterCreatorComponent} from "../character-creator/character-creator.component";
@@ -21,6 +21,7 @@ import {SelectedCharacterDirective} from "../_directives/selected-character.dire
 import {NzPopconfirmModule} from "ng-zorro-antd/popconfirm";
 import {KonvaComponent} from "../konva/konva.component";
 import {NzDropDownModule} from "ng-zorro-antd/dropdown";
+import {NzRadioModule} from "ng-zorro-antd/radio";
 
 const icons: IconDefinition[] = [ AimOutline, DeleteOutline, EditOutline, ForkOutline, SelectOutline, WomanOutline ];
 
@@ -34,6 +35,7 @@ const zorroModules = [
   NzInputNumberModule,
   NzModalModule,
   NzPopconfirmModule,
+  NzRadioModule,
   NzSelectModule
 ];
 
@@ -62,7 +64,8 @@ const routes: Routes = [
     ...zorroModules,
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule
   ]
 })
 export class InnerModule { }

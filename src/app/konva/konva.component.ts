@@ -16,6 +16,7 @@ export class KonvaComponent implements AfterViewInit {
   rightClickedShape?: Konva.Shape | Konva.Group;
   stage?: Konva.Stage;
   selectedLayer?: Konva.Layer;
+  selectedLayerIndex: number = 0;
   selectedMode: KonvaMode = KonvaMode.SELECT;
   transformer?: Konva.Transformer;
 
@@ -162,8 +163,10 @@ export class KonvaComponent implements AfterViewInit {
       height: window.innerHeight
     });
 
-    const layer = new Konva.Layer();
-    this.stage.add(layer);
+    const layer1 = new Konva.Layer();
+    const layer2 = new Konva.Layer();
+    this.stage.add(layer1);
+    this.stage.add(layer2);
 
     this.selectedLayer = this.stage.getLayers()[0];
 
@@ -202,6 +205,12 @@ export class KonvaComponent implements AfterViewInit {
     // tree.draw(this.selectedLayer)
     // femaleNPC.draw(this.selectedLayer);
     // layer.add(rect);
+  }
+
+  selectedLayerChanged(index: number) {
+    // @todo Change selected layer
+    // @todo Only the selected layer should be interactable
+    // @todo Remove selection
   }
 
   protected readonly KonvaMode = KonvaMode;

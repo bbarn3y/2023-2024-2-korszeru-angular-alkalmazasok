@@ -1,5 +1,10 @@
 <nz-card id="konva-toolbar">
   <div class="toolbar-button-container">
+    <nz-radio-group [(ngModel)]="selectedLayerIndex"
+                    (ngModelChange)="selectedLayerChanged($event)">
+      <label nz-radio-button [nzValue]="0">1</label>
+      <label nz-radio-button [nzValue]="1">2</label>
+    </nz-radio-group>
     <ng-template #toolbarButtonTemplate
                  let-icon="buttonIcon"
                  let-mode="mode"
