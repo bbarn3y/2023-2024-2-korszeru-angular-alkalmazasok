@@ -19,6 +19,7 @@ export class KonvaComponent implements AfterViewInit {
   selectedLayerIndex: number = 0;
   selectedMode: KonvaMode = KonvaMode.SELECT;
   transformer?: Konva.Transformer;
+  worker?: Worker;
 
   @ViewChild('menu') contextMenuEl!: NzDropdownMenuComponent;
 
@@ -26,6 +27,18 @@ export class KonvaComponent implements AfterViewInit {
               private nzContextMenuService: NzContextMenuService) {}
 
   ngAfterViewInit() {
+    this.worker = new Worker(new URL('src/app/_workers/konva.worker.ts', import.meta.url));
+
+    this.worker.onmessage = ( ({data}) => {
+      console.log('main thread received a message', data);
+    });
+
+    this.worker.onerror = ( (error) => {
+      console.log('Error on worker', error);
+    })
+
+    this.worker.postMessage('test message');
+
     this.loadState();
 
     document.addEventListener('keydown', (e) => {
