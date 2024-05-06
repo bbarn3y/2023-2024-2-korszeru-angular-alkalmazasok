@@ -208,9 +208,11 @@ export class KonvaComponent implements AfterViewInit {
   }
 
   selectedLayerChanged(index: number) {
-    // @todo Change selected layer
-    // @todo Only the selected layer should be interactable
-    // @todo Remove selection
+    this.selectedLayer = this.stage?.getLayers()[index];
+    this.stage?.getLayers().forEach((layer, i) => {
+      layer.listening(index === i);
+    });
+    this.transformer?.nodes([]);
   }
 
   protected readonly KonvaMode = KonvaMode;
