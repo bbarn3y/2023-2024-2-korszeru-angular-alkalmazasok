@@ -1,5 +1,6 @@
 <nz-card id="konva-toolbar">
   <div class="toolbar-button-container">
+    <button nz-button (click)="generateRandomShapes()">G</button>
     <nz-radio-group [(ngModel)]="selectedLayerIndex"
                     (ngModelChange)="selectedLayerChanged($event)">
       <label nz-radio-button [nzValue]="0">1</label>

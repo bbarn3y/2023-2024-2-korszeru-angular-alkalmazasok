@@ -31,6 +31,8 @@ export class KonvaComponent implements AfterViewInit {
 
     this.worker.onmessage = ( ({data}) => {
       console.log('main thread received a message', data);
+
+
     });
 
     this.worker.onerror = ( (error) => {
@@ -149,6 +151,10 @@ export class KonvaComponent implements AfterViewInit {
 
   deleteShape() {
     this.rightClickedShape?.destroy();
+  }
+
+  generateRandomShapes() {
+
   }
 
   getClickTarget(target: Konva.Shape | Konva.Stage): Konva.Shape | Konva.Group | undefined {

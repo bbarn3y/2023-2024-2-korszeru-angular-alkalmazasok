@@ -1,6 +1,6 @@
 export enum WorkerEventType {
   GENERATE = 'GENERATE',
-  SHAPES_CHANGED = 'SHAPED_CHANGED'
+  SHAPES_CHANGED = 'SHAPES_CHANGED'
 }
 
 export class WorkerEvent {
@@ -20,23 +20,13 @@ export class GenerateWorkerEvent extends WorkerEvent {
   }
 }
 
-export class ShapesChangedByLayerID {
-  layerId: string;
-  shapes: string[];
-
-  constructor(layerId: string, shapes: string[]) {
-    this.layerId = layerId;
-    this.shapes = shapes;
-  }
-}
-
 export class ShapesChangedWorkerEvent extends WorkerEvent {
-  addShapes: ShapesChangedByLayerID[];
-  modifiedShapes: ShapesChangedByLayerID[];
+  addedShapes: string[];
+  modifiedShapes: string[];
 
-  constructor(addShapes: ShapesChangedByLayerID[], modifiedShapes: ShapesChangedByLayerID[]) {
+  constructor(addedShapes: string[], modifiedShapes: string[]) {
     super(WorkerEventType.SHAPES_CHANGED);
-    this.addShapes = addShapes;
+    this.addedShapes = addedShapes;
     this.modifiedShapes = modifiedShapes;
   }
 }
