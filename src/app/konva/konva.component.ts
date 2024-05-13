@@ -4,6 +4,7 @@ import {Tree} from "../_shapes/tree";
 import {FemaleNPC} from "../_shapes/femaleNPC";
 import {KonvaMode} from "@models/konva";
 import {NzContextMenuService, NzDropdownMenuComponent} from "ng-zorro-antd/dropdown";
+import {GenerateWorkerEvent, ShapesChangedWorkerEvent, WorkerEventType} from "@models/worker.model";
 
 @Component({
   selector: 'app-konva',
@@ -32,7 +33,15 @@ export class KonvaComponent implements AfterViewInit {
     this.worker.onmessage = ( ({data}) => {
       console.log('main thread received a message', data);
 
-
+      if (data.type === WorkerEventType.SHAPES_CHANGED) {
+        const shapesChangedWorkEvent = (data as ShapesChangedWorkerEvent);
+        shapesChangedWorkEvent.addedShapes.forEach((shape) => {
+          this.addNewShapeFromJSON(shape);
+        });
+        shapesChangedWorkEvent.modifiedShapes.forEach((shape) => {
+          this.modifyShapeFromJSON(shape);
+        })
+      }
     });
 
     this.worker.onerror = ( (error) => {
@@ -59,6 +68,25 @@ export class KonvaComponent implements AfterViewInit {
           break;
       }
     });
+  }
+
+  addNewShapeFromJSON(shapeJSON: string) {
+    const shape = Konva.Node.create(JSON.parse(shapeJSON));
+    if (shape instanceof Konva.Shape || shape instanceof Konva.Group) {
+      this.selectedLayer?.add(shape);
+    }
+  }
+
+  modifyShapeFromJSON(shapeJSON: string) {
+    const parsedShape = JSON.parse(shapeJSON);
+    let existingShape = this.selectedLayer?.children
+      ?.find((child) => child.attrs.elementId === parsedShape.attrs.elementId);
+    if (existingShape) {
+      const keys = Object.keys(parsedShape.attrs);
+      keys.forEach(key => {
+        existingShape?.setAttr(key, parsedShape.attrs[key]);
+      })
+    }
   }
 
   addStageEventListeners() {
@@ -154,7 +182,7 @@ export class KonvaComponent implements AfterViewInit {
   }
 
   generateRandomShapes() {
-
+    this.worker?.postMessage(new GenerateWorkerEvent(10));
   }
 
   getClickTarget(target: Konva.Shape | Konva.Stage): Konva.Shape | Konva.Group | undefined {
